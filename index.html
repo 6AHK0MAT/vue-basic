@@ -3,14 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <title>Vue JS</title>
+    <style>
+        .circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 1px solid black;
+            display: inline-block;
+            margin: 40px;
+        }
+
+        .red {background: red;}
+        .blue {background: blue;}
+        .green {background: green;}
+    </style>
 </head>
 <body>
 
 <div id="app">
 
-    <input type="text" v-model.lazy="inputValue">
-    <!--<input type="text" v-model="inputValue">-->
-    <h2>{{ inputValue }}</h2>
+    <div
+            class="circle"
+            @click="isActive = !isActive"
+            :class="getCssClasses"
+    ></div>
+
+    <div class="circle" :class="[color, {'red': isActive}]"></div>
+
+    <input type="text" v-model="color">
 
 </div>
 
@@ -20,7 +40,19 @@
     new Vue({
       el: '#app',
       data: {
-        inputValue: 'Initial value'
+        isActive: false,
+        color: 'blue'
+      },
+      computed: {
+        getCssClasses: function() {
+          return {
+            'red': this.isActive,
+            'green': !this.isActive
+          }
+        }
+      },
+      methods: {
+
       }
     })
 
