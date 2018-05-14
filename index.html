@@ -8,42 +8,15 @@
 
 <div id="app">
 
-    <template v-if="isVisible">
-        <h2>I am title</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus, voluptas.</p>
-    </template>
-
-    <!--<template v-if="!isVisible">-->
-        <!--<h2>I am title 2</h2>-->
-        <!--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus, voluptas. 2</p>-->
-    <!--</template>-->
-
-    <template v-else>
-        <h2 style="color: red">I am title</h2>
-        <p style="color: blue">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus, voluptas.</p>
-    </template>
-
-    <h2 v-if="isVisible">Visible</h2>
-    <h2 v-if="!isVisible">Not Visible</h2>
-
-    <button @click="isVisible = !isVisible">{{ titleButton }}</button>
-
-    <hr><hr>
-
-    <h2 v-if="type ==='a'">A</h2>
-    <h2 v-else-if="type ==='b'">B</h2>
-    <h2 v-else-if="type ==='c'">C</h2>
-    <h2 v-else>Нет совпадений</h2>
+    <h1 v-show="isVisible">I am visible!</h1>
+    <h2 v-show="!isVisible">You can't see me!</h2>
 
     <hr>
 
-    <input type="text" v-model="type"></input>
+    <button @click="isVisible = !isVisible">Toggle</button>
+
 
 </div>
-
-
-
-
 
 <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
 <script>
@@ -51,11 +24,8 @@
   new Vue({
     el: '#app',
     data: {
-      isVisible: true,
-      titleButton: 'Сменить',
-      type:'a'
-    },
-
+      isVisible: true
+    }
   })
 
 </script>
