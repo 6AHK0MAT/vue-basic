@@ -3,7 +3,7 @@ import Home from './pages/Home'
 import ErrorCmp from './pages/Error'
 import CarFull from './pages/CarFull'
 
-
+/**/
 const Cars = resolve => {
   require.ensure(['./pages/Cars.vue'], () => {
     resolve(
